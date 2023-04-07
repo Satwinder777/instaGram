@@ -5,7 +5,7 @@ data class UnsplaceapiItem(
     val blur_hash: String,
     val color: String,
     val created_at: String,
-    val current_user_collections: List<Any>,
+    val current_user_collections: List<Any>?,
     val description: String,
     val height: Int,
     val id: String,
@@ -14,9 +14,8 @@ data class UnsplaceapiItem(
     val links: Links,
     val promoted_at: String,
     val sponsorship: Sponsorship,
-    val topic_submissions: TopicSubmissions,
     val updated_at: String,
-    val urls: Urls,
     val user: User,
-    val width: Int
+    val width: Int,
+    var urls: Urls
 )

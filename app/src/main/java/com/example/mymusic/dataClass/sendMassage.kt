@@ -1,3 +1,3 @@
 package com.example.mymusic.dataClass
 
-class TopicSubmissions
+data class sendMassage(val msg:String)

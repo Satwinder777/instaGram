@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">MyMusic</string>
+    <string name="unsplace_api">https://api.unsplash.com/photos/?client_id=LaouBQbk85ic-A8o4rA_XDSUCUfoaHxiCECxd5ZDyUU</string>
+    <string name="secret_key">wA5_P1ZoG0YCm3VLSlyruyR4XJQaiMH05MqavczqdGM</string>
+    <string name="access_key">LaouBQbk85ic-A8o4rA_XDSUCUfoaHxiCECxd5ZDyUU</string>
+    <string name="authorized_code">BE-duKoiX_mo_hCeaTgeLlxGJ2TxCiOd4r-bagPchko</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="CAMERA_REQUEST_CODE">1888</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="paused">Paused…</string>
+    <string name="playing">Playing…</string>
+    <string name="storyIndex">storyIndex</string>
+
+
 </resources>

@@ -4,32 +4,16 @@ import android.annotation.SuppressLint
 import android.content.res.ColorStateList
 import android.media.MediaPlayer
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
-import android.view.MotionEvent
-import android.view.View
 import android.widget.ProgressBar
-import android.widget.SeekBar
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import app.futured.hauler.setOnDragDismissedListener
 import com.example.mymusic.R
 import com.example.mymusic.databinding.ActivityStroyBinding
 import com.example.mymusic.fragments.MainFragment
-import com.google.android.material.behavior.SwipeDismissBehavior
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.card.MaterialCardView
-import kotlinx.coroutines.delay
-import java.lang.Math.abs
-import java.time.Duration
 
 
 class StoryActivity : AppCompatActivity() {
@@ -43,6 +27,7 @@ class StoryActivity : AppCompatActivity() {
     val handler = Handler()
     var posthand:Boolean? = null
 //    private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityStroyBinding.inflate(layoutInflater)

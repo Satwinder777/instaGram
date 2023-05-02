@@ -1,6 +1,9 @@
 package com.example.mymusic.adapter
 
 import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.net.Uri
 import android.provider.ContactsContract.CommonDataKinds.Website.URL
 import android.view.LayoutInflater
@@ -8,11 +11,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.os.persistableBundleOf
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Recycler
 import com.example.mymusic.R
 import com.example.mymusic.dataClass.Unsplaceapi
+import com.google.android.material.card.MaterialCardView
+import com.google.android.material.shape.MaterialShapeDrawable
 import com.squareup.picasso.Picasso
 
 class RecyclerAdapter(var context :Context,var list: MutableList<Unsplaceapi>,var onClickStoryBtn: RecyclerAdapter.OnStoryClick):RecyclerView.Adapter<RecyclerAdapter.InerClass>() {
@@ -36,11 +42,20 @@ class RecyclerAdapter(var context :Context,var list: MutableList<Unsplaceapi>,va
                 onClickStoryBtn.onClickStory(position)
 //                sharebtn.setText("Undo")
                             }
+
+//            var gradientDrawable = GradientDrawable(
+//                GradientDrawable.Orientation.TOP_BOTTOM,
+//                intArrayOf(Color.RED, Color.YELLOW, Color.GREEN)
+//            )
+//            parentCArd.strokeWidth = 3
+
+
         }
     }
     class InerClass(ItemView: View):RecyclerView.ViewHolder(ItemView) {
         var img = ItemView.findViewById<ImageView>(R.id.songCoverImg)
         var text1 = ItemView.findViewById<TextView>(R.id.songName)
+        var parentCArd = ItemView.findViewById<MaterialCardView>(R.id.parentCArd)
 
 
         fun bindView(unsplaceapi: Unsplaceapi){

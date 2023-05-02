@@ -31,31 +31,32 @@ var view1 = LayoutInflater.from(context).inflate(R.layout.bottomsheet,null)
 
     @SuppressLint("SuspiciousIndentation")
     override fun onBindViewHolder(holder: InerClass, position: Int) {
+        var clickc = 0
+        var isLiked = false
         val bottomSheetDialog = BottomSheetDialog(context)
         holder.apply {
             itemView.setOnClickListener { bottomSheetDialog.dismiss() }
             bindView(list[position])
-            var a:Boolean = true
+            var a: Boolean = true
             var b = likeadd
 
             likebtn.setOnClickListener {
-                if (a==false){
+                if (a == false ) {
                     likebtn.setImageResource(R.drawable.baseline_favorite_border_24)
-                     b--
+                    b--
                     like.text = b.toString().plus(" Likes")
 
-
-                    a=true
-                }
-                else{
+                    clickc=0
+                    a = true
+                } else {
                     likebtn.setImageResource(R.drawable.baseline_favorite_24)
                     b++
                     like.text = b.toString().plus(" Likes")
-                    a=false
+                    a = false
                 }
             }
             commentbtn.setOnClickListener {
-                val intent = Intent(context,CommentActivity::class.java)
+                val intent = Intent(context, CommentActivity::class.java)
                 context.startActivity(intent)
             }
             moremenu.setOnClickListener {
@@ -64,10 +65,24 @@ var view1 = LayoutInflater.from(context).inflate(R.layout.bottomsheet,null)
                 bottomSheetDialog.show()
             }
             sharebtn.setOnClickListener {
-                onClickBottom. onClickBottomSheet(list[position])
+                onClickBottom.onClickBottomSheet(list[position])
+            }
+            postImage.setOnClickListener {
+                clickc++
+                if (clickc==2){
+                    likebtn.setImageResource(R.drawable.baseline_favorite_24)
+                    b++
+                    like.text = b.toString().plus(" Likes")
+                    a = false
+
+                    isLiked =true
+                }
             }
 
+
         }
+
+
     }
     class InerClass(ItemView: View):RecyclerView.ViewHolder(ItemView) {
         var img = ItemView.findViewById<ImageView>(R.id.songCoverImg)
@@ -82,6 +97,8 @@ var view1 = LayoutInflater.from(context).inflate(R.layout.bottomsheet,null)
         var userImage = ItemView.findViewById<ImageView>(R.id.userImgpost)
         var moremenu = ItemView.findViewById<ImageView>(R.id.more)
         var likeadd = 0
+
+        var postImage = ItemView.findViewById<ImageView>(R.id.songCoverImg)
 
         fun bindView(unsplaceapi: Unsplaceapi){
             var url:String = unsplaceapi[position].urls.small

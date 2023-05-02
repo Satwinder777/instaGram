@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyMusic</string>
+    <string name="app_name">InstaGramClone</string>
     <string name="unsplace_api">https://api.unsplash.com/photos/?client_id=LaouBQbk85ic-A8o4rA_XDSUCUfoaHxiCECxd5ZDyUU</string>
     <string name="secret_key">wA5_P1ZoG0YCm3VLSlyruyR4XJQaiMH05MqavczqdGM</string>
     <string name="access_key">LaouBQbk85ic-A8o4rA_XDSUCUfoaHxiCECxd5ZDyUU</string>

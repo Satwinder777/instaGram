@@ -1,15 +1,16 @@
 package com.example.mymusic.adapter
 
-import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.lifecycle.Lifecycle
 import com.example.mymusic.fragments.CameraFragment
 import com.example.mymusic.fragments.MainFragment
 import com.example.mymusic.fragments.MassageFragment
 
-class PageAdapter
-    (var context: Context,fm:FragmentManager):FragmentPagerAdapter(fm) {
+class PageAdapter(fm: FragmentManager?,  lifecycle: Lifecycle):FragmentPagerAdapter(
+    fm!!
+) {
     override fun getCount(): Int {
         return 3
     }

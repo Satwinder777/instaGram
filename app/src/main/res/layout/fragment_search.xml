@@ -12,17 +12,20 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
-        <androidx.appcompat.widget.SearchView
+        <SearchView
+            android:id="@+id/searchView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:background="@color/brown"
-            android:hint="Search"
+
+            android:iconifiedByDefault="false"
+            android:queryHint="Search"
 
             >
-        </androidx.appcompat.widget.SearchView>
+        </SearchView>
 
 
         <View

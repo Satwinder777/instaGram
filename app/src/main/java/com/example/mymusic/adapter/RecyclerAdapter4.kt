@@ -16,6 +16,9 @@ import com.example.mymusic.R
 import com.example.mymusic.dataClass.Unsplaceapi
 import com.example.mymusic.dataClass.searchData
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class RecyclerAdapter4(var context :Context, var list: MutableList<searchData>,var OnVideoClick:OnStoryClick):RecyclerView.Adapter<RecyclerAdapter4.InerClass>() {
 
@@ -35,11 +38,17 @@ class RecyclerAdapter4(var context :Context, var list: MutableList<searchData>,v
         val videoUri = Uri.parse(list[position].video)
 //        holder.videoView.start()
         holder.apply {
-            holder.videoView.setVideoURI(videoUri)
+            CoroutineScope(Dispatchers.Unconfined).launch {
+                holder.videoView.setVideoURI(videoUri)
+                videoView.start()
+                CoroutineScope(Dispatchers.Unconfined).launch {videoView.start()}
 
-            itemView.setOnClickListener {
-                OnVideoClick.onClickStory(position,videoView)
+                itemView.setOnClickListener {
+                    OnVideoClick.onClickStory(position,videoView)
+                }
             }
+
+
 
         }
 
@@ -51,4 +60,5 @@ class RecyclerAdapter4(var context :Context, var list: MutableList<searchData>,v
     interface OnStoryClick{
         fun onClickStory(position: Int,videoView: VideoView)
     }
+
 }

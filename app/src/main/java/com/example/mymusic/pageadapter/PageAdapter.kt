@@ -39,6 +39,7 @@ class PageAdapter(var context: Context, fm:FragmentManager,lifecycle:Lifecycle):
 
     }
 
+
     override fun getPageTitle(position: Int): CharSequence? {
 //        return super.getPageTitle(position)
         when(position){

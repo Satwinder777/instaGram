@@ -37,7 +37,7 @@
                 android:text="NewPost" />
 
             <ImageView
-                android:id="@+id/imageView8"
+                android:id="@+id/nextActivityImg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -53,7 +53,8 @@
         android:background="@color/pink"
         android:scaleType="fitXY"
         android:layout_weight="1"
-        android:src="@drawable/boy" />
+        android:src="@drawable/boy"
+        android:largeHeap="true"/>
 
 <RelativeLayout
     android:id="@+id/postingVideo"

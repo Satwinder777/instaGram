@@ -103,7 +103,7 @@ class SearchFragment : Fragment(),RecyclerAdapter4.OnStoryClick {
                 adapter.list.clear()
                 adapter.list = SearchFragment().Data()
                 adapter.notifyDataSetChanged()
-                Log.e("test1", "onClose:  closed tag ed listner using kotlmn", )
+                Log.e("test1", "onClose:  closed tagged listner using kotlin", )
 
                 return true
             }

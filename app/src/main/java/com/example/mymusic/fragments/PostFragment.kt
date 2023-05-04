@@ -1,6 +1,7 @@
 package com.example.mymusic.fragments
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -10,8 +11,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.VideoView
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mymusic.R
+import com.example.mymusic.activity.NewPostActivity
 import com.example.mymusic.adapter.PostingDataAdapter
 import com.example.mymusic.dataClass.postImage
 import com.example.mymusic.dataClass.postVideo
@@ -46,11 +49,12 @@ class PostFragment : Fragment(),PostingDataAdapter.onClikItempost {
             recycler.adapter = adapter
         imageView = binding.postingImage
 
-
-
-
-
         adapter.notifyDataSetChanged()
+        var next = binding.nextActivityImg
+        next.setOnClickListener {
+            task1()
+            findNavController().navigate(R.id.homeFragment)
+        }
 
 
 
@@ -89,6 +93,7 @@ private fun staticDataAdded(){
 //                video.setVideoURI(uri)
                 playVideo(binding.postingVideo1,uri)
 
+
             }
 
             is postImage->{
@@ -118,6 +123,8 @@ private fun staticDataAdded(){
     private fun playVideo(video:VideoView,uri: Uri){
         video.setVideoURI(uri)
         video.setOnClickListener {
+            Log.e("test4", "onClick:  uri is: $uri", )
+
             if (video.isPlaying.not()){
 
                 video.start()
@@ -128,5 +135,8 @@ private fun staticDataAdded(){
         }
 
     }
-
-        }
+    private fun task1(){
+        val intent = Intent(requireContext(),NewPostActivity::class.java)
+        startActivity(intent)
+    }
+}

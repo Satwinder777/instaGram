@@ -76,7 +76,8 @@ import com.squareup.picasso.Picasso
                 // cut and paste the previous startCamera() call here.
                 startCamera()
             }else {
-                Snackbar.make(binding.root,"The camera permission is required", Snackbar.LENGTH_INDEFINITE).show()
+                Snackbar.make(binding.root,"The camera permission is required", Snackbar.LENGTH_SHORT).show()
+
             }
               imgCaptureExecutor = Executors.newSingleThreadExecutor()
         }

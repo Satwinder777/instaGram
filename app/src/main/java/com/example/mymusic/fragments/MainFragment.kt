@@ -18,6 +18,7 @@ import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -32,6 +33,7 @@ import com.example.mymusic.databinding.ActivityMainBinding
 import com.example.mymusic.databinding.FragmentMainBinding
 import com.example.mymusic.`interface`.uspInterface
 import com.example.mymusicobject.Helper
+import com.example.taskviewpager.pageadapter.MainPageAdapter
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.tabs.TabLayout
@@ -184,8 +186,10 @@ class MainFragment : Fragment(), RecyclerAdapter2.OnClickBottom,
         binding.mainShare.setOnClickListener {
             binding.mainShare
                 .setOnClickListener {
-                    var viewPager = view.parent as ViewPager
-                    viewPager.setCurrentItem(2, true)
+
+                    val viewPager = requireActivity().findViewById<ViewPager>(R.id.viewPage0)
+                    viewPager.currentItem = 2
+
                 }
         }
         var window = PopupWindow(requireContext())

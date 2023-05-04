@@ -76,7 +76,6 @@
                                 android:textAlignment="center"
                                 android:textColor="@color/black"
                                 android:textSize="28sp"
-                                android:textStyle="bold"
                                 tools:srcCompat="@tools:sample/avatars" />
                             <ImageView
                                 android:layout_width="wrap_content"
@@ -142,8 +141,8 @@
                                     >
                                     <com.google.android.material.card.MaterialCardView
                                         android:id="@+id/cardView3"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
                                         app:cardElevation="2dp"
                                         app:strokeWidth="3dp"
 
@@ -156,10 +155,19 @@
 
                                         <ImageView
                                             android:id="@+id/songCoverImg"
-                                            android:layout_width="50dp"
-                                            android:layout_height="50dp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
                                             android:scaleType="fitXY"
                                             android:src="@drawable/boy"
+                                              />
+                                        <ImageView
+                                            android:id="@+id/img23"
+                                            android:layout_width="20dp"
+                                            android:layout_height="20dp"
+                                            android:scaleType="fitXY"
+                                            android:elevation="8dp"
+                                            android:layout_gravity="end|bottom"
+                                            android:src="@drawable/add_ic"
                                             />
                                     </com.google.android.material.card.MaterialCardView>
 

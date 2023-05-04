@@ -21,7 +21,6 @@
         android:theme="@style/Theme.MyMusic"
         android:usesCleartextTraffic="true"
         android:largeHeap="true"
-        android:hardwareAccelerated="false"
         tools:targetApi="tiramisu">
         <activity
             android:name=".activity.NewPostActivity"

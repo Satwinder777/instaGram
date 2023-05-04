@@ -19,6 +19,9 @@ import com.example.mymusic.adapter.PostingDataAdapter
 import com.example.mymusic.dataClass.postImage
 import com.example.mymusic.dataClass.postVideo
 import com.example.mymusic.databinding.FragmentPostBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class PostFragment : Fragment(),PostingDataAdapter.onClikItempost {
@@ -42,17 +45,24 @@ class PostFragment : Fragment(),PostingDataAdapter.onClikItempost {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         staticDataAdded()
-            adapter = PostingDataAdapter(list,requireContext(),this)
+            adapter = PostingDataAdapter(list,requireContext(),this@PostFragment)
             recycler = binding.postRecycler1
 
             recycler.adapter = adapter
         imageView = binding.postingImage
 
         adapter.notifyDataSetChanged()
+
+
         var next = binding.nextActivityImg
         next.setOnClickListener {
-            task1()
+
+                task1()
+                findNavController().navigate(R.id.homeFragment) }
+
+        binding.closepostFragment.setOnClickListener {
             findNavController().navigate(R.id.homeFragment)
         }
 
@@ -66,11 +76,11 @@ class PostFragment : Fragment(),PostingDataAdapter.onClikItempost {
 private fun staticDataAdded(){
 
 
-    var uri1 ="android.resource://${context?.packageName}/" + R.drawable.img1
-    var uri2 ="android.resource://${context?.packageName}/" + R.raw.vid1
+    val uri1 ="android.resource://${context?.packageName}/" + R.drawable.img1
+    val uri2 ="android.resource://${context?.packageName}/" + R.raw.vid1
 
-    var uri3 ="android.resource://${context?.packageName}/" + R.drawable.img2
-    var uri4 ="android.resource://${context?.packageName}/" + R.raw.vid2
+    val uri3 ="android.resource://${context?.packageName}/" + R.drawable.img2
+    val uri4 ="android.resource://${context?.packageName}/" + R.raw.vid2
 
     var uri5 ="android.resource://${context?.packageName}/" + R.drawable.img3
     var uri6 ="android.resource://${context?.packageName}/" + R.raw.vid3

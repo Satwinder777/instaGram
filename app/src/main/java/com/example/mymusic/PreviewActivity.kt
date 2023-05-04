@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -64,6 +65,9 @@ class PreviewActivity : AppCompatActivity(),PreviewPostAdapter.OnClickBottom {
             }
 
         })
+
+        var backbtn = findViewById<ImageView>(R.id.backbtnPreviewActivity)
+        backbtn.setOnClickListener { onBackPressed() }
     }
 
     override fun onClickBottomSheet(unsplaceapi: Unsplaceapi) {

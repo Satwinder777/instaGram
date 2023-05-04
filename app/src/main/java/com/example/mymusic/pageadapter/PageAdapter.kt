@@ -40,24 +40,24 @@ class PageAdapter(var context: Context, fm:FragmentManager,lifecycle:Lifecycle):
     }
 
 
-    override fun getPageTitle(position: Int): CharSequence? {
-//        return super.getPageTitle(position)
-        when(position){
-            0->{
-                return "Posts"
-            }
-            1->{
-                return "Reels"
-
-            }
-            2->{
-                return "TagedPosts"
-
-            }
-            else->{
-                return super.getPageTitle(position)
-            }
-        }
-    }
+//    override fun getPageTitle(position: Int): CharSequence? {
+////        return super.getPageTitle(position)
+//        when(position){
+//            0->{
+//                return "Posts"
+//            }
+//            1->{
+//                return "Reels"
+//
+//            }
+//            2->{
+//                return "TagedPosts"
+//
+//            }
+//            else->{
+//                return super.getPageTitle(position)
+//            }
+//        }
+//    }
 
 }

@@ -13,6 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mymusic.R
 import com.example.mymusic.dataClass.postImage
 import com.example.mymusic.dataClass.postVideo
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class PostingDataAdapter(private val list: List<Any>,var context: Context,var onClikItempost1:onClikItempost):RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
 
@@ -52,35 +55,38 @@ class PostingDataAdapter(private val list: List<Any>,var context: Context,var on
 
 
 
+        CoroutineScope(Dispatchers.Unconfined).launch {
+            when (holder) {
+                is InerClass -> {
+                    var image = item as postImage
+                    holder.bindView(image)
+                    var imageUri  = Uri.parse(item.img)
+                    holder.apply {
+                        itemView.setOnClickListener {
 
-        when (holder) {
-            is InerClass -> {
-                var image = item as postImage
-                holder.bindView(image)
-                var imageUri  = Uri.parse(item.img)
-                holder.apply {
-                    itemView.setOnClickListener {
+                            onClikItempost1.onClick(imageUri,position)
 
-                        onClikItempost1.onClick(imageUri,position)
+                        }
+                    }
 
+                }
+                is InerClass2-> {
+                    var video = item as postVideo
+                    holder.bindView2(video)
+                    holder.apply {
+                        itemView.setOnClickListener {
+                            var videoUri  = Uri.parse(item.vid)
+                            onClikItempost1.onClick(videoUri,position)
+
+                        }
                     }
                 }
-
+                else->{
+                    Log.e(TAG, "onBindViewHolder: null item", )}
             }
-            is InerClass2-> {
-                var video = item as postVideo
-                holder.bindView2(video)
-                holder.apply {
-                    itemView.setOnClickListener {
-                        var videoUri  = Uri.parse(item.vid)
-                        onClikItempost1.onClick(videoUri,position)
 
-                    }
-                }
-            }
-             else->{
-                 Log.e(TAG, "onBindViewHolder: null item", )}
         }
+
 
     }
 
@@ -94,19 +100,24 @@ class PostingDataAdapter(private val list: List<Any>,var context: Context,var on
 
 
         fun bindView(first: postImage){
-            var string = first.img
-            var uri = Uri.parse(string)
-            img.setImageURI(uri)
+            CoroutineScope(Dispatchers.Unconfined).launch {
+                var string = first.img
+                var uri = Uri.parse(string)
+                img.setImageURI(uri)
+            }
     }
 
     }
     class InerClass2(ItemView: View):RecyclerView.ViewHolder(ItemView) {
         var videoItem = ItemView.findViewById<VideoView>(R.id.reelItem)
-        fun bindView2(second: postVideo){
-            var string = second.vid
-            var uri = Uri.parse(string)
 
-            videoItem.setVideoURI(uri)
+        fun bindView2(second: postVideo){
+            CoroutineScope(Dispatchers.Unconfined).launch {
+
+                var string = second.vid
+                var uri = Uri.parse(string)
+                videoItem.setVideoURI(uri)
+            }
         }
     }
 

@@ -59,6 +59,7 @@
 
 
                 <ImageView
+                    android:id="@+id/CreateReelPost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="20dp"
@@ -94,26 +95,25 @@
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="65dp"
                         android:layout_height="65dp"
-                        app:strokeColor="@color/sky"
-                        app:strokeWidth="3dp"
                         app:cardCornerRadius="30dp">
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        app:strokeColor="@color/pink"
-                        app:strokeWidth="3dp"
-                        android:layout_margin="2.4dp"
-
+                        android:layout_gravity="center"
                         app:cardCornerRadius="30dp">
                         <ImageView
+                            android:id="@+id/pPhoto"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:scaleType="fitXY"
                             android:src="@drawable/boy" />
                     </com.google.android.material.card.MaterialCardView>
                     </com.google.android.material.card.MaterialCardView>
 
                     <TextView
+                        android:id="@+id/userNameofUserfrag"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
@@ -187,6 +187,7 @@
                 </LinearLayout>
             </LinearLayout>
         <TextView
+            android:id="@+id/bioofUserfrag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="#Be Rare"

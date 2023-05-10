@@ -118,6 +118,7 @@ import com.squareup.picasso.Picasso
             // restart the camera
 //            startCamera()
             var imgdata = ImagePicker.with(this).cameraOnly().start()
+
         }
 
 
@@ -147,6 +148,7 @@ import com.squareup.picasso.Picasso
 //        imgView = findViewById(R.id.imageView)
 
 
+    @Deprecated("Deprecated in Java")
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == CAMERA_REQUEST_CODE && grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
